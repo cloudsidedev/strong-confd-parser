@@ -6,9 +6,9 @@ LABEL Description="strong-confd-parser" Vendor="TTSS AG" Version="1.0"
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
-  ETCD_VERSION=v3.2.9
-  GOOGLE_URL=https://storage.googleapis.com/etcd
-  GITHUB_URL=https://github.com/coreos/etcd/releases/download
+  ETCD_VERSION=v3.2.9 \
+  GOOGLE_URL=https://storage.googleapis.com/etcd \
+  GITHUB_URL=https://github.com/coreos/etcd/releases/download \
   DOWNLOAD_URL=${GOOGLE_URL}
 
 RUN useradd -ms /bin/bash strong-confd-parser && \
