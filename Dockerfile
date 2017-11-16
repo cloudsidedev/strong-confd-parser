@@ -6,7 +6,10 @@ LABEL Description="strong-confd-parser" Vendor="TTSS AG" Version="1.0"
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
-  ETCD_VERSION=3.0.6
+  ETCD_VERSION=v3.2.9
+  GOOGLE_URL=https://storage.googleapis.com/etcd
+  GITHUB_URL=https://github.com/coreos/etcd/releases/download
+  DOWNLOAD_URL=${GOOGLE_URL}
 
 RUN useradd -ms /bin/bash strong-confd-parser && \
     chown -R strong-confd-parser:strong-confd-parser /usr/local &&  \
@@ -16,7 +19,7 @@ RUN useradd -ms /bin/bash strong-confd-parser && \
     apt-get install wget -y && \
     rm -rf /var/lib/apt/lists/* \
     cd /tmp && \
-    wget --no-check-certificate https://github.com/coreos/etcd/releases/download/v${ETCD_VERSION}/etcd-v${ETCD_VERSION}-linux-amd64.tar.gz && \
+    wget --no-check-certificate ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz && \
     tar zxvf etcd-*-linux-amd64.tar.gz && \
     cp etcd-*-linux-amd64/etcdctl /usr/local/bin/etcdctl && \
     rm -rf etcd-*-linux-amd64 && \
