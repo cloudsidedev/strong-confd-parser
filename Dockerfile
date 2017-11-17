@@ -1,4 +1,4 @@
-FROM node:0.10
+FROM node:7
 
 MAINTAINER Ivo Marino <ivo.marino@ttss.ch>
 
@@ -19,7 +19,7 @@ RUN useradd -ms /bin/bash strong-confd-parser && \
     apt-get install wget -y && \
     rm -rf /var/lib/apt/lists/* \
     cd /tmp && \
-    wget --no-check-certificate ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz && \
+    wget --no-check-certificate ${DOWNLOAD_URL}/${ETCD_VERSION}/etcd-${ETCD_VERSION}-linux-amd64.tar.gz && \
     tar zxvf etcd-*-linux-amd64.tar.gz && \
     cp etcd-*-linux-amd64/etcdctl /usr/local/bin/etcdctl && \
     rm -rf etcd-*-linux-amd64 && \
