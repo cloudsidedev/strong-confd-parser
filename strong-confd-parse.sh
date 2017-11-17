@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# slc ctl status > ~/parse
+slc ctl status > ~/parse
 RES=$(awk '{ if ($0 ~ "Service Name: ") { print $3;getline;getline;getline;print $2;getline;print $2;getline;print $2;getline;print $2;getline;getline;getline;getline;getline;getline;getline;print $4 } }' ~/parse)
 RESA=(${RES})
 
